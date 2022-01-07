@@ -1,9 +1,7 @@
 FROM rust:1.56.1-bullseye
 
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt update && apt install -y cmake clang golang less lldb sudo time vim zsh
-ENV EDITOR=vim
-ENV SHELL=/usr/bin/zsh
+RUN apt update && apt install -y cmake clang golang lldb sudo time
 
 ARG USER=code
 ARG USER_UID=1000
@@ -14,7 +12,6 @@ RUN groupadd --gid=$USER_GID $USER \
     && chmod 0440 /etc/sudoers.d/$USER
 USER $USER
 ENV HOME=/home/$USER
-COPY .devcontainer/zshrc $HOME/.zshrc
 
 RUN rustup component add clippy rustfmt
 RUN mkdir /tmp/cargo-deny && cd /tmp/cargo-deny && \
