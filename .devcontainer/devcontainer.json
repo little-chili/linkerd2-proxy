@@ -1,16 +1,17 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.209.6/containers/docker-existing-dockerfile
 {
 	"name": "linkerd2-proxy.dev",
-	"context": "..",
 	"dockerFile": "./Dockerfile",
+	"context": "${localWorkspaceFolder}",
+	// "build": {
+	// 	"args": {
+	// 		"USER_UID": "${localEnv:UID}",
+	// 		"USER_GID": "${localEnv:GID}"
+	// 	},
+	// },
 	"settings": {},
 	"extensions": [
 		"DavidAnson.vscode-markdownlint",
-		"GitHub.copilot",
-		"GitHub.vscode-pull-request-github",
 		"matklad.rust-analyzer",
-		"mutantdino.resourcemonitor",
 		"samverschueren.final-newline",
 		"tamasfe.even-better-toml",
 		"vadimcn.vscode-lldb",
